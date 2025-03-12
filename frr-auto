@@ -13,12 +13,12 @@ WORKDIR /etc/frr
 COPY ./daemons .
 
 # Create routing daemons
-CMD touch bgpd.conf isisd.conf zebra.conf
+RUN touch bgpd.conf isisd.conf zebra.conf
 
 # Set perms on those files
-CMD chown frr:frr bgpd.conf isisd.conf zebra.conf
-CMD chmod 644 bgpd.conf isisd.conf zebra.conf
+RUN chown frr:frr bgpd.conf isisd.conf zebra.conf
+RUN chmod 644 bgpd.conf isisd.conf zebra.conf
 
 # Command to run when container starts
-CMD ["/usr/lib/frr/frrinit.sh", "start"]
-CMD ["vtysh"]
+RUN /usr/lib/frr/frrinit.sh start
+RUN vtysh
