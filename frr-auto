@@ -1,0 +1,24 @@
+# Start with a base image
+FROM frrouting/frr:latest
+
+# Set metadata
+LABEL maintainer="robinsmith3@gmail.com"
+LABEL version="1.0"
+LABEL description="Custom Free Range Routing image"
+
+# Set working directory
+WORKDIR /etc/frr
+
+# Copy local files to container
+COPY ./daemons .
+
+# Create routing daemons
+touch bgpd.conf isisd.conf zebra.conf
+
+# Set perms on those files
+chown frr:frr bgpd.conf isisd.conf zebra.conf
+chmod 644 bgpd.conf isisd.conf zebra.conf
+
+# Command to run when container starts
+CMD ["/usr/lib/frr/frrinit.sh", "start"]
+CMD ["vtysh"]
