@@ -3,7 +3,7 @@ FROM frrouting/frr:latest
 
 # Set metadata
 LABEL maintainer="robinsmith3@gmail.com"
-LABEL version="1.3"
+LABEL version="1.4"
 LABEL description="Custom Free Range Routing image"
 
 # Set working directory
@@ -25,4 +25,5 @@ RUN chmod 644 bgpd.conf isisd.conf zebra.conf
 
 # Command to run when container starts
 #CMD /usr/lib/frr/frrinit.sh start
-CMD ["/usr/lib/frr/frrinit.sh", "start"]
+CMD ["/usr/lib/frr/frrinit.sh start"]
+#CMD ["/usr/lib/frr/watchfrr.sh -d zebra bgpd isis"]
