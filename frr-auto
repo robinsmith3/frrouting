@@ -3,25 +3,25 @@ FROM frrouting/frr:latest
 
 # Set metadata
 #LABEL maintainer="robinsmith3@gmail.com"
-#LABEL version="1.13"
+#LABEL version="1.14"
 #LABEL description="Custom Free Range Routing image"
 
 # Set working directory
-WORKDIR /etc/frr
+#WORKDIR ./
 
 # create zebra dir
-RUN mkdir /etc/frr/zebra
-RUN cd /etc/frr/zebra
+#RUN mkdir ./zebra
+#RUN cd ./zebra
 
 # Copy local files to container
-COPY daemons /etc/frr/zebra
+#COPY daemons ./zebra
 
 # Create routing daemon config files
-RUN touch /etc/frr/zebra/bgpd.conf /etc/frr/zebra/isisd.conf /etc/frr/zebra/zebra.conf
+#RUN touch ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
 
 # Set perms on those files
-RUN chown frr:frr /etc/frr/zebra/bgpd.conf /etc/frr/zebra/isisd.conf /etc/frr/zebra/zebra.conf
-RUN chmod 644 /etc/frr/zebra/bgpd.conf /etc/frr/zebra/isisd.conf /etc/frr/zebra/zebra.conf
+#RUN chown frr:frr ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
+#RUN chmod 644 ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
 
 # Command to run when container starts
 #CMD /usr/lib/frr/frrinit.sh start zebra bgpd isisd
