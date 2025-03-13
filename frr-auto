@@ -10,9 +10,13 @@ LABEL description="Custom Free Range Routing image"
 WORKDIR /etc/frr
 
 # Copy local files to container
-COPY ./daemons .
+COPY daemons .
+COPY startup.sh .
 
-# Create routing daemons
+# Make the script executable
+RUN chmod +x startup.sh
+
+# Create routing daemon config files
 RUN touch bgpd.conf isisd.conf zebra.conf
 
 # Set perms on those files
@@ -21,4 +25,3 @@ RUN chmod 644 bgpd.conf isisd.conf zebra.conf
 
 # Command to run when container starts
 RUN /usr/lib/frr/frrinit.sh start
-RUN vtysh
