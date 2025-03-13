@@ -3,7 +3,7 @@ FROM frrouting/frr:latest
 
 # Set metadata
 LABEL maintainer="robinsmith3@gmail.com"
-LABEL version="1.4"
+LABEL version="1.5"
 LABEL description="Custom Free Range Routing image"
 
 # Set working directory
