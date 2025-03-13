@@ -14,7 +14,7 @@ COPY daemons .
 COPY startup.sh .
 
 # Make the supplemental script executable
-RUN chmod +x startup.sh
+# RUN chmod +x startup.sh
 
 # Create routing daemon config files
 RUN touch bgpd.conf isisd.conf zebra.conf
@@ -24,4 +24,5 @@ RUN chown frr:frr bgpd.conf isisd.conf zebra.conf
 RUN chmod 644 bgpd.conf isisd.conf zebra.conf
 
 # Command to run when container starts
-CMD /usr/lib/frr/frrinit.sh start
+#CMD /usr/lib/frr/frrinit.sh start
+CMD ["/usr/lib/frr/frrinit.sh", "start"]
