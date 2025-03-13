@@ -1,20 +1,15 @@
 # frrouting
-Free Range Routing Open Source BGP lab
+
+Free Range Routing Open Source lab
 
 Docs link: https://docs.frrouting.org/en/latest/index.html
 
 GNS install link: https://gns3.com/community/blog/create-a-router-with-docker-and-free-range-routing
 
-Running as docker containers within a GNS3 VM
+Routers run as docker containers within a GNS3 VM
 
-Check daemon file has routing turned on in /etc/frr
+Check daemons file has your daemons turned on
 
-Check vtysh.conf exists in /etc/frr
-
-Startup for each container example: /usr/lib/frr/watchfrr.sh -d zebra bgpd isis
-
-Once containers are running: vtysh to config as routers
-
-COMMANDS:
-* /usr/lib/frr/watchfrr.sh restart all
-
+Once containers are running: 
+** Use GNS3's 'auxiliary console' for router configuration. The GNS3 the standard console is locked out in the foreground to the startup watchfrr process so you cannot use it.
+** Use vtysh to config routers
