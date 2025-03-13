@@ -11,7 +11,7 @@ WORKDIR /etc/frr
 
 # Copy local files to container
 COPY daemons .
-COPY startup.sh .
+#COPY startup.sh .
 
 # Make the supplemental script executable
 # RUN chmod +x startup.sh
