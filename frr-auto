@@ -13,7 +13,7 @@ WORKDIR /etc/frr
 COPY daemons .
 COPY startup.sh .
 
-# Make the script executable
+# Make the supplemental script executable
 RUN chmod +x startup.sh
 
 # Create routing daemon config files
