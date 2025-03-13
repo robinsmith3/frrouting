@@ -24,4 +24,4 @@ RUN chown frr:frr bgpd.conf isisd.conf zebra.conf
 RUN chmod 644 bgpd.conf isisd.conf zebra.conf
 
 # Command to run when container starts
-RUN /usr/lib/frr/frrinit.sh start
+CMD /usr/lib/frr/frrinit.sh start
