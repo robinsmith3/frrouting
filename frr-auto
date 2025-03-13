@@ -2,28 +2,16 @@
 FROM frrouting/frr:latest
 
 # Set metadata
-#LABEL maintainer="robinsmith3@gmail.com"
-#LABEL version="1.14"
-#LABEL description="Custom Free Range Routing image"
+LABEL maintainer="robinsmith3@gmail.com"
+LABEL version="2.0"
+LABEL description="Custom Free Range Routing image which helps FRR run smoothly from startup"
 
 # Set working directory
-#WORKDIR ./
+WORKDIR /etc/frr
 
-# create zebra dir
-#RUN mkdir ./zebra
-#RUN cd ./zebra
+# make sure you update this file(turn on the daemons you need) before running 
+COPY daemons ./
 
-# Copy local files to container
-#COPY daemons ./zebra
-
-# Create routing daemon config files
-#RUN touch ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
-
-# Set perms on those files
-#RUN chown frr:frr ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
-#RUN chmod 644 ./zebra/bgpd.conf ./zebra/isisd.conf ./zebra/zebra.conf
-
-# Command to run when container starts
-#CMD /usr/lib/frr/frrinit.sh start zebra bgpd isisd
-#CMD ["/usr/lib/frr/frrinit.sh", "start", "zebra", "bgpd", "isisd"]
-#CMD ["/usr/lib/frr/watchfrr.sh -d zebra bgpd isis"]
+# these stored locally assure frr runs smoothly out of the box
+RUN touch ./vtysh.conf
+RUN touch ./frr.conf
