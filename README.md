@@ -1,6 +1,8 @@
 # frrouting
 
-Free Range Routing Open Source lab: docker pull toplard/frr-auto:2.0
+Free Range Routing Open Source router lab: docker pull toplard/frr-auto:2.0
+
+Alternatives: create a node from the base image with all changes needed, then 'docker commit' it and use form there.
 
 Docs link: https://docs.frrouting.org/en/latest/index.html
 
