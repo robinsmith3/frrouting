@@ -5,6 +5,9 @@ LABEL version="2.0"
 WORKDIR /etc/frr
 
 COPY daemons ./
+COPY reload.sh ./
+
+RUN chmod +x reload.sh
 
 RUN touch ./vtysh.conf
 RUN touch ./frr.conf
