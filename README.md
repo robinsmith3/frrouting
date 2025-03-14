@@ -1,6 +1,6 @@
 # frrouting
 
-Free Range Routing Open Source lab
+Free Range Routing Open Source lab: docker pull toplard/frr-auto:2.0
 
 Docs link: https://docs.frrouting.org/en/latest/index.html
 
