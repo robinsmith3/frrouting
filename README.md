@@ -15,3 +15,7 @@ Check daemons file has your daemons turned on
 Once containers are running: 
 ** Use GNS3's 'auxiliary console' for router configuration. The GNS3 the standard console is locked out in the foreground to the startup watchfrr process so you cannot use it.
 ** Use vtysh to config routers
+
+Persistence:
+ Use reload.sh and reload-test.sh to restore frr.conf to reloaded containers
+ Make sure to save frr.conf systematically, maybe with docker cp
